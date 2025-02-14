@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <title>ఫలితాలు</title>
+</head>
+<body>
+    <h1>ఫలితాలు</h1>
+    {% if image_result %}
+        <h2>చిత్ర ఫలితం</h2>
+        <p>{{ image_result }}</p>
+    {% endif %}
+    
+    {% if audio_result %}
+        <h2>ఆడియో ఫలితం</h2>
+        <p>ట్రాన్స్క్రిప్షన్: {{ audio_result.transcription }}</p>
+        <p>ఆడియో అవుట్పుట్: <a href="{{ url_for('static', filename=audio_result.audio_output_path) }}">డౌన్లోడ్</a></p>
+    {% endif %}
+    
+    {% if text_result %}
+        <h2>పాఠ్య ఫలితం</h2>
+        <p>{{ text_result }}</p>
+    {% endif %}
+</body>
+</html>

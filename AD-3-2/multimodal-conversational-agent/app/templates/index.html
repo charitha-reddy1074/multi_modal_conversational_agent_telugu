@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <title>ఫైల్ అప్‌లోడ్ చేయండి</title>
+</head>
+<body>
+    <h1>ఫైల్ అప్‌లోడ్ చేయండి</h1>
+    <form action="{{ url_for('app_routes.process_input') }}" method="post" enctype="multipart/form-data">
+        <label for="image">చిత్రాన్ని అప్‌లోడ్ చేయండి:</label>
+        <input type="file" name="image" id="image"><br><br>
+        
+        <label for="audio">ఆడియోను అప్‌లోడ్ చేయండి:</label>
+        <input type="file" name="audio" id="audio"><br><br>
+        
+        <label for="text">పాఠ్యాన్ని నమోదు చేయండి:</label>
+        <input type="text" name="text" id="text"><br><br>
+        
+        <input type="submit" value="సమర్పించండి">
+    </form>
+</body>
+</html>
