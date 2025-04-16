@@ -7,7 +7,7 @@ from PIL import Image
 class ImageModel:
     def __init__(self, use_resnet=False):
         self.use_resnet = use_resnet
-        if use_resnet:
+        if self.use_resnet:
             self.model = models.resnet50(pretrained=True)
             self.model.eval()
             self.transform = transforms.Compose([
@@ -60,6 +60,9 @@ def describe_image(image_path, context, use_resnet=False):
     telugu_caption = caption_generator.generate_caption(english_caption)
 
     return telugu_caption
+
+def process_image(image_path, context):
+    return describe_image(image_path, context)
 
 # Example usage
 if __name__ == "__main__":

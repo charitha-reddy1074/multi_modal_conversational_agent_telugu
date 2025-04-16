@@ -35,8 +35,13 @@ def index():
 def handle_audio_chunk(data):
     logging.debug("Received audio chunk")
     try:
+        # Ensure the temp directory exists
+        temp_dir = os.path.join(app.root_path, 'temp')
+        if not os.path.exists(temp_dir):
+            os.makedirs(temp_dir)
+
         # Save the audio chunk temporarily
-        file_path = os.path.join('temp', 'live_audio.wav')
+        file_path = os.path.join(temp_dir, 'live_audio.wav')
         with open(file_path, 'wb') as f:
             f.write(data)
         logging.debug(f"Audio chunk saved to {file_path}")
